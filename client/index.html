@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chaturanga</title>
+  <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+</head>
+<body id="body">
+  <h1>Chaturanga</h1>
+  <div id="root"></div>
+  <input id="textField"></input>
+  <button id="sendBtn" onclick="clicker()">Send</button>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    function clicker() {
+      socket.emit('click', document.querySelector("#textField").value);
+    }
+        socket.on('click', function(msg){
+          const message = document.createElement('p');
+          console.log(msg)
+          message.innerText = msg;
+          document.querySelector("#root").append(message);
+          document.querySelector("#textField").value = '';
+
+    })
+  </script>
+  <!-- <script src="build/bundle.js"></script> -->
+
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "name": "Chaturanga",
+  "name": "chaturanga",
   "version": "1.0.0",
   "description": "Global chat messenger via github username.",
   "main": "index.js",
