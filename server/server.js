@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
   return res.sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
+app.get('/client/index.js', (req,res) => {
+  return res.sendFile(path.resolve(__dirname, '../client/index.js'))
+})
+
 io.on('connection', (socket) => {
   console.log('a user has connected');
   socket.on('click', (msg) => {

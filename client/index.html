@@ -10,20 +10,7 @@
   <input id="textField"></input>
   <button id="sendBtn" onclick="clicker()">Send</button>
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    const socket = io();
-    function clicker() {
-      socket.emit('click', document.querySelector("#textField").value);
-    }
-        socket.on('click', function(msg){
-          const message = document.createElement('p');
-          console.log(msg)
-          message.innerText = msg;
-          document.querySelector("#root").append(message);
-          document.querySelector("#textField").value = '';
-
-    })
-  </script>
+  <script src="client/index.js"></script>
   <!-- <script src="build/bundle.js"></script> -->
 
 
