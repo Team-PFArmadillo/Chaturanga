@@ -1,0 +1,17 @@
+
+h1 {
+  text-align: center;
+}
+
+#chatbox {
+  height: 90px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+}
+
+#chat-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
