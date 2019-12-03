@@ -9,17 +9,18 @@
   </head>
   <body>
     <h1>Chaturanga</h1>
-    <div id="app"></div>
-    <div id="chatbox"> 
-
-    </div>
+    <div id="chatbox"></div>
     <br />
     <form id="chat-form">
-      <textarea id="text-space" type="text" cols="50" rows="4" name="text-space" placeholder="Enter text" ></textarea>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="uername" placeholder="Enter username here...">
+      <br />
+      <label for="message">Message</label>
+      <textarea type="text" id="message" cols="50" rows="4" name="message" placeholder="Enter text..." ></textarea>
       <br />
       <button type="submit" id="send-button">Send</button>
     </form>
 
-    <!-- <script type="module" src="./popup.js"></script> -->
+    <script src="./index.js"></script>
   </body>
 </html>
