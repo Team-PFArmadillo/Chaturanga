@@ -7,11 +7,15 @@ const path = require('path');
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-  return res.sendFile(path.resolve(__dirname, '../client/index.html'));
+  return res.sendFile(path.resolve(__dirname, '../client/popup.html'));
 });
 
 app.get('/client/index.js', (req,res) => {
   return res.sendFile(path.resolve(__dirname, '../client/index.js'))
+})
+
+app.get('/style.css', (req, res) => {
+  return res.status(200).set('Content-Type', 'text/css').sendFile(path.resolve(__dirname, '../client/style.css'))
 })
 
 io.on('connection', (socket) => {
