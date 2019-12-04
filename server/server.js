@@ -73,14 +73,21 @@ app.get('/getmessage', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log('a user has connected');
-  socket.on('click', (msg) => {
-    console.log('message:' + msg);
-    io.emit('click', msg);
+  socket.on('click', (msgData) => {
+    console.log('message:' + msgData);
+    io.emit('click', msgData);
+
+    //send new msg to database for persistence between sessions
+    const myData = MessageThread.create({ messages: msgData }, (err, msgData) => {
+      if (err) return console.log('Whoopsies! Issue with querying data.');
+      console.log("Sent message to DB", msgData);
+      // res.send(msgData);
+    })
   })
   socket.on('disconnect', () => {
     console.log('a user has disconnected');
   })
-});
+})
 
 // * catch-all error handler
 app.all('*', (req, res) => res.status(404).send('Whoopsies! Page not found!'));
