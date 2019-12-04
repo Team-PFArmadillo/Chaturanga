@@ -6,6 +6,6 @@
 
   "browser_action": {
     "default_title": "Chaturanga Pop",
-    "default_popup": "popup.html"
+    "default_popup": "client/popup.html"
   }
 }
