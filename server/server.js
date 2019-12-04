@@ -5,7 +5,7 @@ const io = require('socket.io')(http);
 const path = require('path');
 const mongoose = require('mongoose');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // * establish body-parser and use it to be able to access data in a readable format
 const bodyParser = require('body-parser');
