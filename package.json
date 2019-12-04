@@ -1,0 +1,30 @@
+{
+  "name": "chaturanga",
+  "version": "1.0.0",
+  "description": "Global chat messenger via github username.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server/server.js ",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-PFArmadillo/Chaturanga.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-PFArmadillo/Chaturanga/issues"
+  },
+  "homepage": "https://github.com/Team-PFArmadillo/Chaturanga#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "mongodb": "^3.3.5",
+    "mongoose": "^5.7.13",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1",
+    "socket.io": "^2.3.0"
+  }
+}

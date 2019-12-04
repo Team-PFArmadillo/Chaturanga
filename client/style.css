@@ -1,0 +1,25 @@
+
+h1 {
+  text-align: center;
+}
+
+#chatbox {
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+  overflow: auto;
+  
+}
+
+#chat-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#send-button{
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
+}
