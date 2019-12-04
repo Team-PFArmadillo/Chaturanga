@@ -1,15 +1,16 @@
-
-// * setting up express && mongoose here
-
 const express = require('express');
-
 const app = express();
-const port = 3000;
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+const path = require('path');
 const mongoose = require('mongoose');
+
+const PORT = 3000;
 
 // * establish body-parser and use it to be able to access data in a readable format
 const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 
 // * creating a connection string to speak with database
 
@@ -36,13 +37,21 @@ const messageThread = new Schema({
   messages: Array,
 });
 
+
 const MessageThread = mongoose.model('Chat Logs', messageThread);
 
-// mongodb+srv://rella_db_chat:iFtMZb9.znUo!uxBTMqt@cluster0-zqzvp.mongodb.net/test?retryWrites=true&w=majority
 
-// * posting and saving msg to the database with error handler
+app.get('/', (req, res) => {
+  return res.sendFile(path.resolve(__dirname, '../client/popup.html'));
+});
 
-app.use(bodyParser.json());
+app.get('/client/index.js', (req,res) => {
+  return res.sendFile(path.resolve(__dirname, '../client/index.js'))
+})
+
+app.get('/style.css', (req, res) => {
+  return res.status(200).set('Content-Type', 'text/css').sendFile(path.resolve(__dirname, '../client/style.css'))
+})
 
 // * creating and saving message to the database
 
@@ -61,15 +70,21 @@ app.get('/getmessage', (req, res) => {
     res.send(msgData);
   });
 });
-// app.use('/', (req, res) => {
-//   //res.sendFile(__dirname +'/index.html');
-//   res.send('Jello World!');
-// });
 
+io.on('connection', (socket) => {
+  console.log('a user has connected');
+  socket.on('click', (msg) => {
+    console.log('message:' + msg);
+    io.emit('click', msg);
+  })
+  socket.on('disconnect', () => {
+    console.log('a user has disconnected');
+  })
+});
 
 // * catch-all error handler
 app.all('*', (req, res) => res.status(404).send('Whoopsies! Page not found!'));
-// app.get('/', (req, res) => res.send('Hello World!'));
 
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+http.listen(PORT, () => {
+  console.log(`listening on port: ${PORT}`)
+});

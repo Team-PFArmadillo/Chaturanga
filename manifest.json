@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Chaturanga",
+  "version": "0.0.0.1",
+  "description": "Global chat messenger via github username",
+
+  "browser_action": {
+    "default_title": "Chaturanga Pop",
+    "default_popup": "client/popup.html"
+  }
+}
