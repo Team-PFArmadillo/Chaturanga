@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Chaturanga HTML Title</title>
   </head>
   <body>
     <h1>Chaturanga</h1>
     <div id="chatbox"></div>
     <br />
-    <form id="chat-form">
+    <div id="chat-form">
       <label for="username">Username</label>
-      <input type="text" id="username" name="uername" placeholder="Enter username here...">
+      <input type="text" id="username" name="username" placeholder="Enter username here...">
       <br />
       <label for="message">Message</label>
       <textarea type="text" id="message" cols="50" rows="4" name="message" placeholder="Enter text..." ></textarea>
       <br />
-      <button type="submit" id="send-button">Send</button>
-    </form>
-
-    <script src="./index.js"></script>
+      <button type="submit" id="send-button" onclick="clicker()">Send</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./client/index.js"></script>
   </body>
 </html>
